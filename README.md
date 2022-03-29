@@ -12,7 +12,7 @@ This is just a simple project as a challenge to the company Jumia. The main obje
 
 ### Main Folders
 
-´´´
+```
 project 
 └─── docker-compose.yml - File configuration for the project docker images
 └─── service-A
@@ -33,7 +33,8 @@ project
 │   └─── helper - Folder for files that are helpers/utils
 │   └─── index.js - Main file
 │   └─── tests - Folder for test files
-´´´
+```
+
 ## To Run (locally)
 1. Set a .env file for each service. With configuration similar to the `docker-compose.yml`.
 1. Run `npm install` from this repository to get the required libs.
