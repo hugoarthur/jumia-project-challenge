@@ -1,6 +1,13 @@
 const express = require('express');
 const dotenv = require('dotenv');
-dotenv.config();
+const path = require('path');
+dotenv.config({ path: path.resolve(__dirname, '.env') });
+
+const MONGO_HOST = process.env.MONGO_HOST || 'localhost';
+const mongoose = require('mongoose');
+mongoose.connect(MONGO_HOST)
+    .then(()=>console.log('mongo connected'))
+    .catch(e=>console.error(e));
 
 const orderRoutes = require('./app/routes/orders');
 

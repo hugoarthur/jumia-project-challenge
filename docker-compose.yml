@@ -5,11 +5,22 @@ services:
     image: node-service-a
     ports:
       - "3000:3000"
+    environment:
+      - PORT=3000
+      - ORDER_API_BASE_URL=http://service-b:3001/service-b
   service-b:
     image: node-service-b
     ports:
       - "3001:3001"
+    environment:
+      - PORT=3001
+      - MONGO_HOST=mongodb://container-mongo:27017/service-b
   database:
     image: mongo
-    # ports:
-    #   - ""
+    container_name: container-mongo
+    environment:
+      - MONGO_INITDB_DATABASE=service-b
+      # - MONGO_INITDB_ROOT_USERNAME=user
+      # - MONGO_INITDB_ROOT_PASSWORD=pa$$w0rd
+    ports:
+      - "27017:27017"

@@ -1,7 +1,8 @@
 const express = require('express');
 const bb = require('express-busboy');
 const dotenv = require('dotenv');
-dotenv.config();
+const path = require('path');
+dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 const fileRoutes = require('./app/routes/file');
 
